@@ -1,11 +1,14 @@
 ---
-- hosts: example
+- hosts: node
   tasks:
-    - name: test echo
-      shell: echo "test11" 
-    - name: copy file to dest
+    - name: prepare environment
+      copy: 
+           src: deploy.sh
+           dest: /root/
+           owner: root
+      shell: sh /root/deploy.sh
+    - name: copy package to dest
       copy:
         src: target/trucks.war
-        dest: /usr/local/tomcat/webapps/ 
+        dest: /usr/local/apache-tomcat-8.5.41/webapps/
         owner: root
-
