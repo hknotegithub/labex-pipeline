@@ -15,5 +15,15 @@ pipeline {
                     sh "mvn clean package"
                 }
             }
+            stage('Deploy'){
+			steps {
+				ansiblePlaybook(
+					playbook: "${env.WORKSPACE}/playbook.yml",
+					inventory: "${env.WORKSPACE}/hosts",
+					credentialsId: 'liuwenjieID'
+				)		
+	
+			}
+		}
         }
 }

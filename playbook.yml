@@ -1,0 +1,11 @@
+---
+- hosts: example
+  tasks:
+    - name: test echo
+      shell: echo "test11" 
+    - name: copy file to dest
+      copy:
+        src: target/trucks.war
+        dest: /root/
+        owner: root
+
