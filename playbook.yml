@@ -6,6 +6,6 @@
     - name: copy file to dest
       copy:
         src: target/trucks.war
-        dest: /root/
+        dest: /usr/local/tomcat/webapps/ 
         owner: root
 
