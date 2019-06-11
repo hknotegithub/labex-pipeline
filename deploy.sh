@@ -30,7 +30,10 @@ echo "export JAVA_HOME=/usr/local/${jdk}" >> /etc/profile
 echo 'export PATH=$JAVA_HOME/bin:$PATH'  >> /etc/profile
 source /etc/profile
 
+export JAVA_HOME=/usr/local/${jdk}
+export PATH=$JAVE_HOME/bin:$PATH
 echo "start tomcat\n"
-sh /usr/local/${tomcat}/bin/startup.sh 
+chmod +x /usr/local/${tomcat}/bin/startup.sh
+nohup /usr/local/${tomcat}/bin/startup.sh &
 
 echo "success"
