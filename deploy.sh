@@ -3,6 +3,9 @@
 jdk="jdk1.8.0_181"
 tomcat="apache-tomcat-8.5.41"
 
+echo "kill tomcat process"
+ps -ef | grep tomcat | grep -v grep | awk '{print $2}' | xargs kill 
+
 cd /root/
 
 echo "download jdk\n"
@@ -28,9 +31,6 @@ echo 'export PATH=$JAVA_HOME/bin:$PATH'  >> /etc/profile
 source /etc/profile
 
 echo "start tomcat\n"
-if [ -e /usr/local/${tomcat}/bin/shutdown.sh ]; then
-	sh /usr/local/${tomcat}/bin/shutdown.sh
-fi
 sh /usr/local/${tomcat}/bin/startup.sh 
 
 echo "success"
