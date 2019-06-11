@@ -7,7 +7,7 @@
            dest: /root/
            owner: root
     - name: prepare environment
-      shell: sh /root/deploy.sh
+      shell: source /root/deploy.sh
     - name: copy package to dest
       copy:
         src: target/trucks.war
