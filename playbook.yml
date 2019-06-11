@@ -1,11 +1,12 @@
 ---
 - hosts: node
   tasks:
-    - name: prepare environment
+    - name: transfer deploy script
       copy: 
            src: deploy.sh
            dest: /root/
            owner: root
+    - name: prepare environment
       shell: sh /root/deploy.sh
     - name: copy package to dest
       copy:
