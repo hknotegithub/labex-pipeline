@@ -18,7 +18,7 @@ pipeline {
 				ansiblePlaybook(
 					playbook: "${env.WORKSPACE}/playbook.yml",
 					inventory: "${env.WORKSPACE}/hosts",
-					credentialsId: 'liuwenjieID'
+					credentialsId: 'rootID'
 				)		
 	
 			}
