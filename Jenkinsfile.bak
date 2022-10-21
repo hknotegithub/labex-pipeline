@@ -1,6 +1,6 @@
 pipeline {
         agent any
-
+        
         tools {
         maven 'Maven3.6'
         }
@@ -13,6 +13,15 @@ pipeline {
                     sh "mvn clean package"
                 }
             }
+            stage('Deploy'){
+			steps {
+				ansiblePlaybook(
+					playbook: "${env.WORKSPACE}/playbook.yml",
+					inventory: "${env.WORKSPACE}/hosts",
+					credentialsId: 'rootID'
+				)		
+	
+			}
+		}
         }
 }
-
